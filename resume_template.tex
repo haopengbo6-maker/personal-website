@@ -1,0 +1,82 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setmainfont{Times New Roman}
+\setCJKmainfont{Microsoft YaHei}
+
+\usepackage[left=0.72in,right=0.72in,top=0.62in,bottom=0.62in]{geometry}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+
+\definecolor{sectionblue}{RGB}{24,72,124}
+\titleformat{\section}{\large\bfseries\color{sectionblue}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{0.75em}{0.45em}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.25em,itemsep=0.18em,topsep=0.22em,parsep=0pt}
+\renewcommand{\labelitemi}{\textbullet}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE \textbf{郝鹏博}}\\
+    \vspace{1.5mm}
+    北京航空航天大学人工智能本科 \quad | \quad
+    \href{mailto:haopengbo6@gmail.com}{haopengbo6@gmail.com} \quad | \quad
+    +86 18335498008\\
+    \href{https://github.com/haopengbo6-maker}{github.com/haopengbo6-maker}
+\end{center}
+
+\section*{教育背景 / Education}
+\textbf{北京航空航天大学 / Beihang University}，北京 \hfill 2025 -- 至今\\
+本科 / B.Sc.，人工智能 / Artificial Intelligence\\
+相关课程：数学分析、高等代数、程序设计基础、数据结构、离散数学、基础物理学、人工智能导论
+
+\section*{项目经历 / Projects}
+
+\textbf{AI 实习岗位匹配与技能差距分析系统} \hfill 2026
+\begin{itemize}
+    \item 基于真实 AI 实习岗位数据，完成数据清洗、字段整理与岗位技能标签分析，构建面向学生求职场景的岗位推荐与技能差距分析流程。
+    \item 设计多维匹配评分逻辑，结合用户技能、项目经历与求职偏好输出岗位推荐结果，并解释匹配技能、缺口技能和市场趋势。
+    \item 使用 Streamlit 搭建交互式页面，结合 Pandas、Scikit-learn、OpenPyXL 与 Plotly 实现数据处理、推荐计算和可视化展示。
+    \item 技术栈：Python, Pandas, Scikit-learn, Streamlit, OpenPyXL, Plotly, HTML/CSS
+\end{itemize}
+
+\textbf{热门评论人格分析（抖音创变者计划）} \hfill 2026
+\begin{itemize}
+    \item 面向短视频热点评论互动场景，设计 38 个热点事件选择流程，根据用户评论偏好计算“热评人格”并生成可分享海报。
+    \item 实现评论选择、人格结果生成、好友关系对比与特征码分享等交互功能，增强页面的传播性和趣味性。
+    \item 负责前端页面结构、视觉样式与核心交互逻辑开发，优化移动端浏览体验和结果页展示效果。
+    \item 技术栈：HTML, CSS, JavaScript
+\end{itemize}
+
+\textbf{五子棋 AI 对战系统} \hfill 2026
+\begin{itemize}
+    \item 基于 Minimax 搜索与 Alpha-Beta 剪枝实现 15$\times$15 五子棋人机对战，支持玩家落子、AI 决策与胜负判定。
+    \item 设计棋盘状态评估函数，结合连子数量、开放端与潜在威胁对候选落子进行评分，提升 AI 落子的合理性。
+    \item 使用 Pygame 实现棋盘绘制、鼠标交互、回合更新与游戏状态管理，完成可运行的本地对战程序。
+    \item 技术栈：Python, Pygame
+\end{itemize}
+
+\section*{技能 / Skills}
+\begin{itemize}
+    \item 编程语言：Python, C/C++, JavaScript
+    \item 数据与机器学习：Pandas, Scikit-learn, PyTorch, Plotly
+    \item 前端与应用开发：HTML, CSS, Streamlit, Pygame
+    \item 工具：Git, GitHub, VS Code, Codex, Claude Code, Trae
+    \item AI 学习方向：Diffusion Model, ControlNet, Stable Diffusion, Flow Matching, FLUX, 具身智能基础论文
+\end{itemize}
+
+\section*{校园经历 / Campus Experience}
+\textbf{北京航空航天大学人工智能学院学生会文体部副部长} \hfill 2025 -- 至今
+\begin{itemize}
+    \item 参与组织学院晚会、航天嘉年华等文体活动，负责活动策划、现场执行与人员协调。
+    \item 协助完成学院志愿活动组织工作，提升跨部门沟通、任务推进和团队协作能力。
+\end{itemize}
+
+\end{document}

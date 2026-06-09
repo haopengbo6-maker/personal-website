@@ -1,0 +1,23 @@
+:root {
+  color-scheme: dark;
+  --color-bg: #050505;
+  --color-bg-soft: #0a0b0d;
+  --color-surface: #101114;
+  --color-surface-strong: #15171c;
+  --color-text: #f4f4f5;
+  --color-muted: #a1a1aa;
+  --color-muted-strong: #d4d4d8;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-border-strong: rgba(125, 211, 252, 0.34);
+  --color-accent: #7dd3fc;
+  --color-accent-soft: rgba(125, 211, 252, 0.14);
+  --color-accent-faint: rgba(125, 211, 252, 0.06);
+  --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.42);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --page-max: 1380px;
+  --content-pad: clamp(20px, 4vw, 56px);
+  --font-sans: "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+}
