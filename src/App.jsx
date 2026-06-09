@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import ArtInterest from './pages/ArtInterest.jsx';
 import Home from './pages/Home.jsx';
 import InterestDetail from './pages/InterestDetail.jsx';
 import NotFound from './pages/NotFound.jsx';
@@ -12,6 +13,7 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/projects" element={<Projects />} />
       <Route path="/projects/:projectId" element={<ProjectDetail />} />
+      <Route path="/interests/art" element={<ArtInterest />} />
       <Route path="/interests/sports" element={<SportsInterest />} />
       <Route path="/interests/:interestId" element={<InterestDetail />} />
       <Route path="*" element={<NotFound />} />
