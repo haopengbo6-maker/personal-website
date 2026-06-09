@@ -26,8 +26,10 @@ export const interests = [
     summary: '喜欢台球、篮球、足球、乒乓球等运动，享受节奏、力量和对抗中的即时反馈。',
     motionType: 'trajectory',
     route: '/interests/sports',
-    status: 'planned',
-    statusLabel: '记录整理中',
+    status: 'ready',
+    subtitle: '节奏、力量、判断与协作。',
+    quote: '运动吸引我的地方，不只是胜负本身，而是每一次判断、发力、传递和反馈之间形成的节奏。',
+    notes: ['篮球', '足球', '台球', '乒乓球'],
   },
   {
     id: 'music',

@@ -4,6 +4,7 @@ import InterestDetail from './pages/InterestDetail.jsx';
 import NotFound from './pages/NotFound.jsx';
 import ProjectDetail from './pages/ProjectDetail.jsx';
 import Projects from './pages/Projects.jsx';
+import SportsInterest from './pages/SportsInterest.jsx';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/projects" element={<Projects />} />
       <Route path="/projects/:projectId" element={<ProjectDetail />} />
+      <Route path="/interests/sports" element={<SportsInterest />} />
       <Route path="/interests/:interestId" element={<InterestDetail />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

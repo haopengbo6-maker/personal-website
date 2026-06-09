@@ -250,6 +250,12 @@ button {
   background: rgba(255, 255, 255, 0.025);
 }
 
+.button:disabled,
+.sports-hero-actions .button:disabled {
+  cursor: not-allowed;
+  opacity: 0.56;
+}
+
 .button-secondary:hover,
 .button-primary:hover,
 .card-actions a:hover,
@@ -1121,6 +1127,364 @@ button {
   min-height: 62vh;
 }
 
+.sports-page {
+  background:
+    radial-gradient(circle at 72% 12%, rgba(157, 197, 215, 0.1), transparent 28%),
+    linear-gradient(180deg, rgba(3, 4, 4, 0.92), rgba(7, 8, 9, 1));
+}
+
+.sports-page.sports-intro-active {
+  max-height: 100dvh;
+  overflow: hidden;
+}
+
+.sports-intro-animation {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 28% 30%, rgba(157, 197, 215, 0.12), transparent 28%),
+    radial-gradient(circle at 74% 58%, rgba(255, 255, 255, 0.055), transparent 24%),
+    #020303;
+  overflow: hidden;
+  animation: sportsIntroFadeOut 900ms ease 8.1s both;
+}
+
+.sports-skip-button {
+  position: absolute;
+  right: clamp(18px, 4vw, 48px);
+  top: clamp(18px, 4vw, 42px);
+  z-index: 3;
+  min-height: 42px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  padding: 9px 16px;
+  color: var(--color-text);
+  background: rgba(7, 8, 9, 0.72);
+  cursor: pointer;
+}
+
+.sports-stage {
+  position: relative;
+  width: min(1180px, 94vw);
+  height: min(680px, 76vh);
+  min-height: 520px;
+}
+
+.sports-stage-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(157, 197, 215, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(157, 197, 215, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at center, black, transparent 78%);
+  opacity: 0.7;
+}
+
+.sports-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.sports-svg path,
+.sports-svg rect,
+.sports-svg ellipse,
+.sports-svg circle {
+  vector-effect: non-scaling-stroke;
+}
+
+.sports-hoop,
+.sports-dunker,
+.sports-kick-leg,
+.sports-arc,
+.billiards-table,
+.cue-stick,
+.rack-balls,
+.collision-points {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2;
+}
+
+.sports-hoop {
+  opacity: 0;
+  animation: sportsDrawIn 600ms ease 120ms both, sportsSceneOut 500ms ease 2.4s both;
+}
+
+.sports-dunker {
+  stroke: rgba(243, 245, 247, 0.78);
+  stroke-width: 8;
+  stroke-linecap: round;
+  opacity: 0;
+  transform-origin: 610px 410px;
+  animation: dunkerRise 1.55s cubic-bezier(0.2, 0.7, 0.2, 1) both, sportsSceneOut 420ms ease 1.7s both;
+}
+
+.sports-dunker circle {
+  fill: rgba(243, 245, 247, 0.78);
+  stroke: none;
+}
+
+.sports-transform-ball {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation:
+    ballDunk 1.65s cubic-bezier(0.2, 0.7, 0.2, 1) both,
+    ballRollFootball 950ms ease-in-out 1.65s both,
+    ballPass 1.35s cubic-bezier(0.17, 0.67, 0.28, 1) 2.62s both,
+    ballRollCue 920ms ease 4s both,
+    cueBallExit 640ms ease 5.18s both,
+    ballParticleOut 560ms ease 6.25s both;
+}
+
+.sports-ball-core {
+  fill: rgba(215, 199, 157, 0.18);
+  stroke: rgba(243, 245, 247, 0.9);
+  stroke-width: 2.6;
+}
+
+.basketball-lines,
+.football-lines,
+.cueball-lines {
+  fill: none;
+  stroke: rgba(243, 245, 247, 0.82);
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: opacity 300ms ease;
+}
+
+.basketball-lines {
+  animation: basketballTexture 8.1s linear both;
+}
+
+.football-lines {
+  opacity: 0;
+  animation: footballTexture 8.1s linear both;
+}
+
+.cueball-lines {
+  opacity: 0;
+  animation: cueballTexture 8.1s linear both;
+}
+
+.sports-impact {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  opacity: 0;
+  transform-origin: center;
+  animation: sportsImpact 600ms ease 1.35s both;
+}
+
+.sports-arc {
+  opacity: 0;
+  stroke-dasharray: 8 14;
+  stroke-width: 1.5;
+}
+
+.sports-arc-pass {
+  animation: arcTrace 1.4s ease 2.65s both;
+}
+
+.sports-arc-roll {
+  animation: arcTrace 1s ease 4s both;
+}
+
+.sports-kick-leg {
+  stroke: rgba(243, 245, 247, 0.68);
+  stroke-width: 8;
+  stroke-linecap: round;
+  opacity: 0;
+  transform-origin: 360px 540px;
+  animation: kickLeg 1s ease 2.58s both;
+}
+
+.sports-scene-billiards {
+  opacity: 0;
+  animation: billiardsSceneIn 500ms ease 4.82s both, ballParticleOut 700ms ease 6.55s forwards;
+}
+
+.billiards-table {
+  stroke: rgba(157, 197, 215, 0.48);
+  stroke-width: 2;
+}
+
+.billiards-table rect {
+  fill: rgba(157, 197, 215, 0.025);
+}
+
+.cue-stick {
+  stroke: rgba(243, 245, 247, 0.72);
+  stroke-width: 6;
+  stroke-linecap: round;
+  animation: cueStrike 800ms cubic-bezier(0.2, 0.8, 0.2, 1) 5.05s both;
+}
+
+.cue-ball {
+  fill: rgba(243, 245, 247, 0.9);
+  stroke: rgba(157, 197, 215, 0.72);
+  stroke-width: 2;
+  animation: cueBallStrike 900ms ease 5.15s both;
+}
+
+.rack-balls circle {
+  fill: rgba(243, 245, 247, 0.14);
+  stroke: rgba(157, 197, 215, 0.82);
+  stroke-width: 1.6;
+  animation: rackFlash 880ms ease 5.75s both;
+}
+
+.break-balls circle {
+  fill: rgba(157, 197, 215, 0.74);
+  opacity: 0;
+  animation: breakScatter 900ms ease-out 5.84s both;
+}
+
+.collision-points circle {
+  fill: rgba(157, 197, 215, 0.86);
+  stroke: none;
+  opacity: 0;
+  animation: collisionFlash 600ms ease 5.76s both;
+}
+
+.sports-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sports-particles span {
+  position: absolute;
+  left: var(--px);
+  top: var(--py);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(210, 230, 238, 0.9);
+  box-shadow: 0 0 18px rgba(157, 197, 215, 0.46);
+  opacity: 0;
+  transform: translate3d(var(--tx), var(--ty), 0) scale(0.6);
+  animation: sportsParticleRebuild 2.2s ease var(--pdelay) both;
+}
+
+.sports-particles span:nth-child(3n) {
+  background: rgba(157, 197, 215, 0.86);
+}
+
+.sports-particles span:nth-child(5n) {
+  width: 2px;
+  height: 2px;
+}
+
+.sports-final-wireframe {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(560px, 82vw);
+  min-height: 220px;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  border: 1px solid rgba(157, 197, 215, 0.32);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  background: rgba(7, 8, 9, 0.52);
+  color: var(--color-text);
+  opacity: 0;
+  transform: translate(-50%, -46%) scale(0.96);
+  animation: finalWireframe 900ms ease 7.55s both;
+}
+
+.sports-final-wireframe span {
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+}
+
+.sports-final-wireframe strong {
+  font-size: clamp(1.8rem, 4vw, 3.8rem);
+  line-height: 1.04;
+}
+
+.sports-final-wireframe p {
+  margin: 6px 0 0;
+  color: var(--color-muted);
+}
+
+.sports-content {
+  min-height: 68vh;
+  display: grid;
+  align-content: center;
+  padding: clamp(92px, 12vw, 160px) 0 clamp(48px, 8vw, 94px);
+}
+
+.sports-hero-copy h1 {
+  margin: 12px 0 0;
+  font-size: clamp(4.6rem, 13vw, 12rem);
+  line-height: 0.9;
+  letter-spacing: 0;
+}
+
+.sports-hero-copy p {
+  max-width: 760px;
+  margin: 20px 0 0;
+  color: var(--color-muted-strong);
+  font-size: clamp(1.3rem, 3vw, 2.4rem);
+}
+
+.sports-hero-actions {
+  margin-top: 32px;
+}
+
+.sports-intro-copy {
+  padding-top: 24px;
+}
+
+.sports-intro-copy p {
+  max-width: 860px;
+  margin: 0;
+  color: var(--color-muted-strong);
+  font-size: clamp(1.08rem, 1.8vw, 1.42rem);
+  line-height: 1.8;
+}
+
+.sports-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding-top: 24px;
+}
+
+.sports-card {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: clamp(22px, 3vw, 34px);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.018)),
+    rgba(16, 17, 20, 0.72);
+}
+
+.sports-card > span {
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+}
+
+.sports-card h2 {
+  max-width: 620px;
+  margin: 24px 0;
+  font-size: clamp(1.32rem, 2.4vw, 2.5rem);
+  line-height: 1.18;
+}
+
 @keyframes fadeRise {
   from {
     opacity: 0;
@@ -1167,6 +1531,300 @@ button {
   }
 }
 
+@keyframes sportsIntroFadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes sportsDrawIn {
+  from {
+    opacity: 0;
+    stroke-dasharray: 240;
+    stroke-dashoffset: 240;
+  }
+  to {
+    opacity: 1;
+    stroke-dasharray: 240;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes sportsSceneOut {
+  to {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+}
+
+@keyframes dunkerRise {
+  0% {
+    opacity: 0;
+    transform: translate3d(-100px, 170px, 0) rotate(-18deg);
+  }
+  32% {
+    opacity: 1;
+  }
+  70% {
+    transform: translate3d(40px, -98px, 0) rotate(7deg);
+  }
+  100% {
+    opacity: 0.84;
+    transform: translate3d(80px, -64px, 0) rotate(12deg);
+  }
+}
+
+@keyframes ballDunk {
+  0% {
+    transform: translate3d(674px, 206px, 0) scale(0.78);
+  }
+  45% {
+    transform: translate3d(838px, 206px, 0) scale(0.86);
+  }
+  72% {
+    transform: translate3d(820px, 378px, 0) scale(0.9);
+  }
+  100% {
+    transform: translate3d(680px, 574px, 0) scale(1);
+  }
+}
+
+@keyframes ballRollFootball {
+  from {
+    transform: translate3d(680px, 574px, 0) rotate(0deg) scale(1);
+  }
+  to {
+    transform: translate3d(414px, 524px, 0) rotate(520deg) scale(1.02);
+  }
+}
+
+@keyframes ballPass {
+  0% {
+    transform: translate3d(414px, 524px, 0) rotate(0deg) scale(1.02);
+  }
+  50% {
+    transform: translate3d(660px, 338px, 0) rotate(420deg) scale(1.04);
+  }
+  100% {
+    transform: translate3d(932px, 474px, 0) rotate(840deg) scale(1.02);
+  }
+}
+
+@keyframes ballRollCue {
+  from {
+    transform: translate3d(932px, 474px, 0) rotate(0deg) scale(1.02);
+  }
+  to {
+    transform: translate3d(440px, 352px, 0) rotate(-620deg) scale(0.72);
+  }
+}
+
+@keyframes cueBallExit {
+  from {
+    transform: translate3d(440px, 352px, 0) scale(0.72);
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(708px, 352px, 0) scale(0.58);
+    opacity: 0;
+  }
+}
+
+@keyframes ballParticleOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes basketballTexture {
+  0%,
+  19% {
+    opacity: 1;
+  }
+  31%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes footballTexture {
+  0%,
+  20% {
+    opacity: 0;
+  }
+  31%,
+  47% {
+    opacity: 1;
+  }
+  56%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes cueballTexture {
+  0%,
+  48% {
+    opacity: 0;
+  }
+  58%,
+  75% {
+    opacity: 1;
+  }
+  82%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes sportsImpact {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  35% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.2);
+  }
+}
+
+@keyframes arcTrace {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 120;
+  }
+  20%,
+  70% {
+    opacity: 0.72;
+  }
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes kickLeg {
+  0% {
+    opacity: 0;
+    transform: translate3d(-120px, 18px, 0) rotate(-12deg);
+  }
+  35% {
+    opacity: 1;
+  }
+  70% {
+    transform: translate3d(0, 0, 0) rotate(8deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(20px, 0, 0) rotate(14deg);
+  }
+}
+
+@keyframes billiardsSceneIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes cueStrike {
+  0% {
+    transform: translate3d(-140px, 0, 0);
+  }
+  70% {
+    transform: translate3d(70px, 0, 0);
+  }
+  100% {
+    transform: translate3d(30px, 0, 0);
+  }
+}
+
+@keyframes cueBallStrike {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(268px, 0, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes rackFlash {
+  0%,
+  58% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes breakScatter {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--bx), var(--by), 0);
+  }
+}
+
+@keyframes collisionFlash {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  45% {
+    opacity: 1;
+    transform: scale(2.4);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.2);
+  }
+}
+
+@keyframes sportsParticleRebuild {
+  0% {
+    opacity: 0;
+    transform: translate3d(var(--tx), var(--ty), 0) scale(0.35);
+  }
+  22% {
+    opacity: 1;
+  }
+  72% {
+    opacity: 0.9;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.35);
+  }
+}
+
+@keyframes finalWireframe {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -44%) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
 @media (max-width: 1120px) {
   .hero-grid,
   .about-grid,
@@ -1209,6 +1867,14 @@ button {
   .detail-hero-grid,
   .split-detail-section {
     grid-template-columns: 1fr;
+  }
+
+  .sports-stage {
+    height: min(620px, 72vh);
+  }
+
+  .sports-particles span:nth-child(2n) {
+    display: none;
   }
 }
 
@@ -1297,8 +1963,41 @@ button {
   .contact-panel,
   .detail-content-grid,
   .interest-story-grid,
-  .screenshot-grid {
+  .screenshot-grid,
+  .sports-card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .sports-intro-animation {
+    align-items: start;
+    padding-top: 96px;
+  }
+
+  .sports-stage {
+    width: 100vw;
+    height: 540px;
+    min-height: 0;
+  }
+
+  .sports-svg {
+    transform: scale(1.18);
+    transform-origin: center;
+  }
+
+  .sports-dunker,
+  .sports-kick-leg {
+    opacity: 0;
+  }
+
+  .sports-final-wireframe {
+    width: min(84vw, 420px);
+    min-height: 190px;
+    padding: 24px;
+  }
+
+  .sports-content {
+    min-height: auto;
+    padding-top: 76px;
   }
 
   .detail-hero {
@@ -1348,6 +2047,10 @@ button {
     bottom: -120px;
     height: min(840px, 104vh);
   }
+
+  .sports-particles span:nth-child(n + 49) {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1357,5 +2060,19 @@ button {
     scroll-behavior: auto !important;
     animation: none !important;
     transition: none !important;
+  }
+
+  .sports-intro-animation {
+    display: none;
+  }
+
+  .sports-page.sports-intro-active {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .sports-content {
+    opacity: 1;
+    transform: none;
   }
 }
