@@ -17,6 +17,10 @@ export default function Home() {
       <main>
         <section className="hero-section" id="hero">
           <ParticleField />
+          <div className="hero-portrait" aria-hidden="true">
+            <img src={`${import.meta.env.BASE_URL}images/portrait.png`} alt="" />
+            <div className="portrait-aura" />
+          </div>
           <div className="hero-grid page-shell">
             <div className="hero-copy">
               <p className="hero-kicker">Beihang University / Artificial Intelligence</p>
@@ -31,10 +35,6 @@ export default function Home() {
                   联系我
                 </a>
               </div>
-            </div>
-            <div className="portrait-frame">
-              <img src={`${import.meta.env.BASE_URL}images/portrait.png`} alt="郝鹏博黑色背景肖像" />
-              <div className="portrait-glow" />
             </div>
           </div>
         </section>
