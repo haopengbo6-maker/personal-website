@@ -9,8 +9,22 @@
     />
     <meta name="theme-color" content="#050505" />
     <title>郝鹏博 | AI student / Builder / Visual thinker</title>
-    <script type="module" crossorigin src="/personal-website/assets/index-Bs4DV88C.js"></script>
-    <link rel="stylesheet" crossorigin href="/personal-website/assets/index-DTB5Yd0f.css">
+    <script>
+      (function (location) {
+        if (location.search[1] === '/') {
+          var decoded = location.search
+            .slice(1)
+            .split('&')
+            .map(function (segment) {
+              return segment.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(null, null, location.pathname.slice(0, -1) + decoded + location.hash);
+        }
+      })(window.location);
+    </script>
+    <script type="module" crossorigin src="/personal-website/assets/index-D7Byz4K-.js"></script>
+    <link rel="stylesheet" crossorigin href="/personal-website/assets/index-CMsvU1ai.css">
   </head>
   <body>
     <div id="root"></div>
