@@ -97,12 +97,12 @@ function SportsIntroAnimation({ playKey, onFinish, onSkip }) {
           </g>
 
           <g className="sports-kick-leg">
-            <path d="M238 494c56-16 112 4 152 54" />
-            <path d="M350 536l82 34" />
+            <path d="M226 520c58-22 118-2 164 34" />
+            <path d="M350 552l76 12" />
           </g>
 
-          <path className="sports-arc sports-arc-pass" d="M414 524 C568 318 782 326 932 474" />
-          <path className="sports-arc sports-arc-roll" d="M690 558 C758 574 852 574 964 536" />
+          <path className="sports-arc sports-arc-pass" d="M390 552 C548 438 760 438 948 512" />
+          <path className="sports-arc sports-arc-roll" d="M948 512 C842 540 718 532 610 500" />
 
           <g className="sports-transform-ball" filter="url(#sportsGlow)">
             <circle className="sports-ball-core" cx="0" cy="0" r="34" />

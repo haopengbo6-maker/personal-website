@@ -1235,10 +1235,10 @@ button {
   transform-box: fill-box;
   transform-origin: center;
   animation:
-    ballDunk 1.65s cubic-bezier(0.2, 0.7, 0.2, 1) both,
-    ballRollFootball 950ms ease-in-out 1.65s both,
-    ballPass 1.35s cubic-bezier(0.17, 0.67, 0.28, 1) 2.62s both,
-    ballRollCue 920ms ease 4s both,
+    ballDunk 1.55s cubic-bezier(0.2, 0.7, 0.2, 1) both,
+    ballRollFootball 1.05s ease-in-out 1.55s both,
+    ballPass 1.35s cubic-bezier(0.17, 0.67, 0.28, 1) 2.6s both,
+    ballRollCue 1.05s ease 3.95s both,
     cueBallExit 640ms ease 5.18s both,
     ballParticleOut 560ms ease 6.25s both;
 }
@@ -1279,7 +1279,7 @@ button {
   stroke-width: 2;
   opacity: 0;
   transform-origin: center;
-  animation: sportsImpact 600ms ease 1.35s both;
+  animation: sportsImpact 600ms ease 1.32s both;
 }
 
 .sports-arc {
@@ -1289,11 +1289,11 @@ button {
 }
 
 .sports-arc-pass {
-  animation: arcTrace 1.4s ease 2.65s both;
+  animation: arcTrace 1.35s ease 2.58s both;
 }
 
 .sports-arc-roll {
-  animation: arcTrace 1s ease 4s both;
+  animation: arcTrace 1.05s ease 3.92s both;
 }
 
 .sports-kick-leg {
@@ -1301,8 +1301,8 @@ button {
   stroke-width: 8;
   stroke-linecap: round;
   opacity: 0;
-  transform-origin: 360px 540px;
-  animation: kickLeg 1s ease 2.58s both;
+  transform-origin: 350px 552px;
+  animation: kickLeg 980ms ease 2.52s both;
 }
 
 .sports-scene-billiards {
@@ -1577,46 +1577,46 @@ button {
 
 @keyframes ballDunk {
   0% {
-    transform: translate3d(674px, 206px, 0) scale(0.78);
+    transform: translate3d(680px, 206px, 0) scale(0.78);
   }
   45% {
     transform: translate3d(838px, 206px, 0) scale(0.86);
   }
   72% {
-    transform: translate3d(820px, 378px, 0) scale(0.9);
+    transform: translate3d(842px, 374px, 0) scale(0.9);
   }
   100% {
-    transform: translate3d(680px, 574px, 0) scale(1);
+    transform: translate3d(690px, 580px, 0) scale(1);
   }
 }
 
 @keyframes ballRollFootball {
   from {
-    transform: translate3d(680px, 574px, 0) rotate(0deg) scale(1);
+    transform: translate3d(690px, 580px, 0) rotate(0deg) scale(1);
   }
   to {
-    transform: translate3d(414px, 524px, 0) rotate(520deg) scale(1.02);
+    transform: translate3d(390px, 552px, 0) rotate(-620deg) scale(1.02);
   }
 }
 
 @keyframes ballPass {
   0% {
-    transform: translate3d(414px, 524px, 0) rotate(0deg) scale(1.02);
+    transform: translate3d(390px, 552px, 0) rotate(-620deg) scale(1.02);
   }
   50% {
-    transform: translate3d(660px, 338px, 0) rotate(420deg) scale(1.04);
+    transform: translate3d(650px, 430px, 0) rotate(-180deg) scale(1.04);
   }
   100% {
-    transform: translate3d(932px, 474px, 0) rotate(840deg) scale(1.02);
+    transform: translate3d(948px, 512px, 0) rotate(360deg) scale(1.02);
   }
 }
 
 @keyframes ballRollCue {
   from {
-    transform: translate3d(932px, 474px, 0) rotate(0deg) scale(1.02);
+    transform: translate3d(948px, 512px, 0) rotate(360deg) scale(1.02);
   }
   to {
-    transform: translate3d(440px, 352px, 0) rotate(-620deg) scale(0.72);
+    transform: translate3d(440px, 352px, 0) rotate(-540deg) scale(0.72);
   }
 }
 
@@ -1639,10 +1639,10 @@ button {
 
 @keyframes basketballTexture {
   0%,
-  19% {
+  18% {
     opacity: 1;
   }
-  31%,
+  29%,
   100% {
     opacity: 0;
   }
@@ -1650,14 +1650,14 @@ button {
 
 @keyframes footballTexture {
   0%,
-  20% {
+  19% {
     opacity: 0;
   }
-  31%,
-  47% {
+  30%,
+  49% {
     opacity: 1;
   }
-  56%,
+  57%,
   100% {
     opacity: 0;
   }
