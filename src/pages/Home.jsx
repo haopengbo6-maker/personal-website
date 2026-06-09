@@ -33,7 +33,7 @@ export default function Home() {
               </div>
             </div>
             <div className="portrait-frame">
-              <img src="/images/portrait.png" alt="郝鹏博黑色背景肖像" />
+              <img src={`${import.meta.env.BASE_URL}images/portrait.png`} alt="郝鹏博黑色背景肖像" />
               <div className="portrait-glow" />
             </div>
           </div>
