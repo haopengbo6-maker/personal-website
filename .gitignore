@@ -1,0 +1,13 @@
+node_modules/
+dist/
+
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+
+resume_review_page-*.png
+resume_template_review-*.png
+resume_template_final-*.png
