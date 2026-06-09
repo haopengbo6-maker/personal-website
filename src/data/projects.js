@@ -11,10 +11,9 @@ export const projects = [
     role: '负责数据处理、匹配逻辑设计、可视化展示和 Streamlit 应用实现。',
     tags: ['Data Analysis', 'Recommendation', 'Streamlit', 'Visualization'],
     techStack: ['Python', 'Pandas', 'Scikit-learn', 'Streamlit', 'OpenPyXL', 'Plotly'],
-    githubUrl: 'https://github.com/haopengbo6-maker',
-    futureRoute: '/projects/ai-internship',
+    route: '/projects/ai-internship',
     coverTone: 'analysis',
-    status: '可继续扩展为在线演示与岗位数据仪表盘',
+    status: '进行中：核心逻辑与展示流程已完成，在线演示与数据说明正在整理。',
     metrics: [
       { label: '核心流程', value: '4 steps' },
       { label: '输出形式', value: '推荐 + 差距' },
@@ -23,7 +22,7 @@ export const projects = [
     highlights: [
       '将岗位描述、技能关键词和用户输入统一到同一套匹配逻辑中。',
       '用可视化结果解释“为什么推荐这个岗位”，降低黑箱感。',
-      '保留后续接入真实招聘数据、用户画像和在线部署的接口。',
+      '结构上支持继续接入真实招聘数据、用户画像和在线部署。',
     ],
     process: [
       '清洗岗位数据，统一岗位名称、技能要求和描述字段。',
@@ -36,8 +35,11 @@ export const projects = [
       '增加简历上传或技能标签选择入口。',
       '加入岗位收藏、对比和学习路线推荐。',
     ],
+    screenshots: [],
     links: [
-      { label: 'GitHub 主页', url: 'https://github.com/haopengbo6-maker' },
+      { label: 'GitHub', url: '', status: '代码整理中' },
+      { label: 'Demo', url: '', status: '暂未上线' },
+      { label: 'GitHub 主页', url: 'https://github.com/haopengbo6-maker', status: '可访问' },
     ],
   },
   {
@@ -52,10 +54,9 @@ export const projects = [
     role: '负责页面结构、交互逻辑、视觉样式和结果生成体验。',
     tags: ['Frontend', 'Interaction', 'Social Sharing', 'Creative Coding'],
     techStack: ['HTML', 'CSS', 'JavaScript'],
-    githubUrl: 'https://github.com/haopengbo6-maker',
-    futureRoute: '/projects/comment-personality',
+    route: '/projects/comment-personality',
     coverTone: 'interactive',
-    status: '可继续扩展为真实活动页与移动端分享链路',
+    status: '进行中：互动流程已成型，移动端演示素材正在整理。',
     metrics: [
       { label: '体验类型', value: '互动 H5' },
       { label: '结果形式', value: '人格海报' },
@@ -77,8 +78,11 @@ export const projects = [
       '补充更多人格分支与结果文案。',
       '接入分享图生成、活动数据统计或二维码入口。',
     ],
+    screenshots: [],
     links: [
-      { label: 'GitHub 主页', url: 'https://github.com/haopengbo6-maker' },
+      { label: 'GitHub', url: '', status: '代码整理中' },
+      { label: 'Demo', url: '', status: '暂未上线' },
+      { label: 'GitHub 主页', url: 'https://github.com/haopengbo6-maker', status: '可访问' },
     ],
   },
   {
@@ -93,10 +97,9 @@ export const projects = [
     role: '负责棋盘交互、胜负判断、AI 搜索逻辑和界面实现。',
     tags: ['Game AI', 'Search Algorithm', 'Pygame'],
     techStack: ['Python', 'Pygame', 'Minimax', 'Alpha-Beta Pruning'],
-    githubUrl: 'https://github.com/haopengbo6-maker',
-    futureRoute: '/projects/gomoku-ai',
+    route: '/projects/gomoku-ai',
     coverTone: 'game',
-    status: '可继续扩展为算法可视化与 Web 版对战',
+    status: '进行中：本地对战逻辑已完成，算法可视化与 Web 体验正在规划。',
     metrics: [
       { label: '棋盘规模', value: '15 x 15' },
       { label: '搜索方法', value: 'Minimax' },
@@ -105,7 +108,7 @@ export const projects = [
     highlights: [
       '实现棋盘绘制、落子交互、胜负判断和 AI 决策闭环。',
       '通过 Alpha-Beta 剪枝减少不必要搜索，提高落子效率。',
-      '为后续做算法可视化、难度等级和评估函数调参留下空间。',
+      '结构上支持继续加入算法可视化、难度等级和评估函数调参。',
     ],
     process: [
       '建立棋盘状态结构和玩家落子交互。',
@@ -118,8 +121,11 @@ export const projects = [
       '制作 AI 思考过程可视化。',
       '迁移为浏览器可运行版本，降低体验门槛。',
     ],
+    screenshots: [],
     links: [
-      { label: 'GitHub 主页', url: 'https://github.com/haopengbo6-maker' },
+      { label: 'GitHub', url: '', status: '代码整理中' },
+      { label: 'Demo', url: '', status: '暂未上线' },
+      { label: 'GitHub 主页', url: 'https://github.com/haopengbo6-maker', status: '可访问' },
     ],
   },
 ];

@@ -26,9 +26,15 @@ export default function ProjectDetail() {
               <p>{project.description}</p>
               <div className="detail-actions">
                 {project.links?.map((link) => (
-                  <a key={link.url} className="button button-secondary" href={link.url} target="_blank" rel="noreferrer">
-                    {link.label}
-                  </a>
+                  link.url ? (
+                    <a key={link.label} className="button button-secondary" href={link.url} target="_blank" rel="noreferrer">
+                      {link.label}
+                    </a>
+                  ) : (
+                    <span key={link.label} className="button button-muted" title={link.status}>
+                      {link.label}：{link.status}
+                    </span>
+                  )
                 ))}
                 <Link className="button button-primary" to="/">
                   回到首页
@@ -93,10 +99,34 @@ export default function ProjectDetail() {
           </ol>
         </section>
 
+        <section className="content-section page-shell screenshot-section">
+          <div className="split-detail-section">
+            <div>
+              <p className="detail-eyebrow">Screenshots</p>
+              <h2>项目截图</h2>
+            </div>
+            {project.screenshots?.length ? (
+              <div className="screenshot-grid">
+                {project.screenshots.map((shot) => (
+                  <figure className="screenshot-card" key={shot.src}>
+                    <img src={shot.src} alt={shot.alt} />
+                    <figcaption>{shot.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            ) : (
+              <div className="empty-state">
+                <span>Material pending</span>
+                <p>项目截图与演示素材正在整理。当前页面先保留截图区域，方便后续补充界面、数据图表或运行结果。</p>
+              </div>
+            )}
+          </div>
+        </section>
+
         <section className="content-section page-shell split-detail-section">
           <div>
-            <p className="detail-eyebrow">Next interface</p>
-            <h2>后续版本预留</h2>
+            <p className="detail-eyebrow">Next steps</p>
+            <h2>下一步计划</h2>
           </div>
           <ul className="detail-list">
             {project.nextSteps.map((item) => (

@@ -16,7 +16,7 @@ export default function Projects() {
           <p className="detail-eyebrow">Projects / Case studies</p>
           <h1>项目不只展示结果，也展示问题、方法和下一步。</h1>
           <p>
-            V2 将首页的项目卡片扩展为独立详情页。每个项目都会保留问题背景、技术方案、个人职责、关键亮点和后续接口，
+            这里把首页项目卡片扩展为完整的 case study。每个项目都会保留问题背景、技术方案、个人职责、关键亮点和当前状态，
             方便招聘者或合作方快速理解项目价值。
           </p>
         </section>

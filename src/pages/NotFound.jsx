@@ -10,7 +10,7 @@ export default function NotFound() {
         <section className="page-shell detail-hero">
           <p className="detail-eyebrow">404 / Page not found</p>
           <h1>这个页面还没有被点亮。</h1>
-          <p>V2 已经预留了项目详情页和兴趣页接口。如果你是从旧链接进入，可以先回到首页继续浏览。</p>
+          <p>你访问的页面暂时不存在。如果你是从旧链接进入，可以先回到首页或项目列表继续浏览。</p>
           <div className="detail-actions">
             <Link className="button button-primary" to="/">
               回到首页

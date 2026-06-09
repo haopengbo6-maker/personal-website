@@ -14,12 +14,12 @@ export default function InterestCard({ interest }) {
         <p>{interest.summary}</p>
       </div>
       {interest.status === 'ready' ? (
-        <Link className="interest-card-link" to={interest.futureRoute}>
+        <Link className="interest-card-link" to={interest.route}>
           进入页面
         </Link>
       ) : (
-        <button type="button" disabled title={`后续版本预留：${interest.futureRoute}`}>
-          Coming soon
+        <button type="button" disabled>
+          {interest.statusLabel || '内容整理中'}
         </button>
       )}
     </article>

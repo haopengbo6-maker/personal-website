@@ -40,8 +40,8 @@ export default function Home() {
         </section>
 
         <section className="content-section page-shell" id="about">
-          <SectionTitle eyebrow="01 / About" title="从 AI 学习者出发，持续把想法做成可运行的作品。">
-            这个网站记录我的项目、学习路径和兴趣观察。V2 开始补充项目详情页与兴趣独立页，让作品不只停留在标题和截图。
+          <SectionTitle eyebrow="01 / About" title="不是一份线上简历，而是一张可探索的数字名片。">
+            这里记录我的学习路径、项目实践和兴趣观察。项目部分会展示问题背景、实现方法和个人职责，兴趣部分则保留我观察世界的另一种方式。
           </SectionTitle>
           <div className="about-grid">
             <article className="about-card">
@@ -68,7 +68,7 @@ export default function Home() {
 
         <section className="content-section page-shell" id="projects">
           <SectionTitle eyebrow="02 / Projects" title="把想法做成可以运行、可以展示、可以被理解的小系统。">
-            三个项目分别覆盖数据分析、前端互动和游戏 AI。每个项目都已扩展为独立 case study 页面，展示问题、方法、职责和下一步。
+            三个项目分别覆盖数据分析、前端互动和游戏 AI。每个项目都整理为独立 case study，呈现问题、方法、职责和当前状态。
           </SectionTitle>
           <div className="project-grid">
             {projects.map((project, index) => (
@@ -79,7 +79,7 @@ export default function Home() {
 
         <section className="content-section page-shell" id="skills">
           <SectionTitle eyebrow="03 / Skills" title="技术栈保持清晰，能力边界也保持可继续生长。">
-            数据处理、机器学习、前端交互和工具链是当前重点。后续版本会继续接入真实演示、项目文章和更多作品素材。
+            数据处理、机器学习、前端交互和工具链是当前重点。能力结构会随着项目实践持续更新。
           </SectionTitle>
           <div className="skill-grid">
             {skillGroups.map((group) => (
@@ -105,7 +105,7 @@ export default function Home() {
 
         <section className="content-section page-shell" id="interests">
           <SectionTitle eyebrow="05 / Interests" title="兴趣不是装饰，是理解世界的另一组接口。">
-            V2 已开放美术与摄影、游戏、阅读三个兴趣页面，其余方向会在后续版本继续扩展。
+            美术与摄影、游戏体验分析已经整理为独立页面，其余兴趣以卡片形式记录当前方向。
           </SectionTitle>
           <div className="interest-grid">
             {interests.map((interest) => (

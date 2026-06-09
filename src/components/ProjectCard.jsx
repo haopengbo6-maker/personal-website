@@ -30,16 +30,7 @@ export default function ProjectCard({ project, index }) {
         ))}
       </div>
       <div className="card-actions">
-        {project.githubUrl ? (
-          <a href={project.githubUrl} target="_blank" rel="noreferrer">
-            GitHub 主页
-          </a>
-        ) : (
-          <button type="button" disabled>
-            GitHub 待补充
-          </button>
-        )}
-        <Link to={project.futureRoute}>查看详情</Link>
+        <Link to={project.route}>查看详情</Link>
       </div>
     </article>
   );

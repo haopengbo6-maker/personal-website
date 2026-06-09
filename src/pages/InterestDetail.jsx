@@ -38,7 +38,7 @@ export default function InterestDetail() {
         <section className="content-section page-shell split-detail-section">
           <div>
             <p className="detail-eyebrow">Keywords</p>
-            <h2>后续可展开的内容方向</h2>
+            <h2>观察关键词</h2>
           </div>
           <div className="large-tag-list">
             {interest.notes.map((note) => (
