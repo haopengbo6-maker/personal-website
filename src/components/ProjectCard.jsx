@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function ProjectCard({ project, index }) {
   return (
     <article className="project-card" style={{ '--delay': `${index * 90}ms` }}>
@@ -30,16 +32,14 @@ export default function ProjectCard({ project, index }) {
       <div className="card-actions">
         {project.githubUrl ? (
           <a href={project.githubUrl} target="_blank" rel="noreferrer">
-            GitHub
+            GitHub 主页
           </a>
         ) : (
           <button type="button" disabled>
             GitHub 待补充
           </button>
         )}
-        <button type="button" disabled title={`V2 预留：${project.futureRoute}`}>
-          详情页 V2
-        </button>
+        <Link to={project.futureRoute}>查看详情</Link>
       </div>
     </article>
   );

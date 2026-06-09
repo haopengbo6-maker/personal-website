@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function InterestCard({ interest }) {
   return (
     <article className={`interest-card interest-${interest.motionType}`}>
@@ -11,9 +13,15 @@ export default function InterestCard({ interest }) {
         <h3>{interest.title}</h3>
         <p>{interest.summary}</p>
       </div>
-      <button type="button" disabled title={`V2 预留：${interest.futureRoute}`}>
-        Coming soon
-      </button>
+      {interest.status === 'ready' ? (
+        <Link className="interest-card-link" to={interest.futureRoute}>
+          进入页面
+        </Link>
+      ) : (
+        <button type="button" disabled title={`后续版本预留：${interest.futureRoute}`}>
+          Coming soon
+        </button>
+      )}
     </article>
   );
 }

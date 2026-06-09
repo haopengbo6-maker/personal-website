@@ -29,7 +29,7 @@ export default function Home() {
               <p className="hero-intro">{profile.intro}</p>
               <div className="hero-actions">
                 <a className="button button-primary" href="#projects">
-                  查看项目
+                  浏览作品集
                 </a>
                 <a className="button button-secondary" href="#contact">
                   联系我
@@ -40,8 +40,8 @@ export default function Home() {
         </section>
 
         <section className="content-section page-shell" id="about">
-          <SectionTitle eyebrow="01 / About" title="不是一份线上简历，而是一张可探索的数字名片。">
-            V1 先把身份、项目和兴趣稳定呈现出来，后续版本可以继续扩展项目详情页、兴趣独立页和作品集。
+          <SectionTitle eyebrow="01 / About" title="从 AI 学习者出发，持续把想法做成可运行的作品。">
+            这个网站记录我的项目、学习路径和兴趣观察。V2 开始补充项目详情页与兴趣独立页，让作品不只停留在标题和截图。
           </SectionTitle>
           <div className="about-grid">
             <article className="about-card">
@@ -68,7 +68,7 @@ export default function Home() {
 
         <section className="content-section page-shell" id="projects">
           <SectionTitle eyebrow="02 / Projects" title="把想法做成可以运行、可以展示、可以被理解的小系统。">
-            三个项目分别覆盖数据分析、前端互动和游戏 AI，后续可接入独立 case study 页面。
+            三个项目分别覆盖数据分析、前端互动和游戏 AI。每个项目都已扩展为独立 case study 页面，展示问题、方法、职责和下一步。
           </SectionTitle>
           <div className="project-grid">
             {projects.map((project, index) => (
@@ -79,7 +79,7 @@ export default function Home() {
 
         <section className="content-section page-shell" id="skills">
           <SectionTitle eyebrow="03 / Skills" title="技术栈保持清晰，能力边界也保持可继续生长。">
-            数据、机器学习、前端交互和工具链会作为后续版本的主要扩展方向。
+            数据处理、机器学习、前端交互和工具链是当前重点。后续版本会继续接入真实演示、项目文章和更多作品素材。
           </SectionTitle>
           <div className="skill-grid">
             {skillGroups.map((group) => (
@@ -105,7 +105,7 @@ export default function Home() {
 
         <section className="content-section page-shell" id="interests">
           <SectionTitle eyebrow="05 / Interests" title="兴趣不是装饰，是理解世界的另一组接口。">
-            V1 先呈现入口和微交互，V2 可扩展为独立页面、作品集、游戏分析和美食记录。
+            V2 已开放美术与摄影、游戏、阅读三个兴趣页面，其余方向会在后续版本继续扩展。
           </SectionTitle>
           <div className="interest-grid">
             {interests.map((interest) => (

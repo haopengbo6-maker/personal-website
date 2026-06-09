@@ -9,6 +9,20 @@
     />
     <meta name="theme-color" content="#050505" />
     <title>郝鹏博 | AI student / Builder / Visual thinker</title>
+    <script>
+      (function (location) {
+        if (location.search[1] === '/') {
+          var decoded = location.search
+            .slice(1)
+            .split('&')
+            .map(function (segment) {
+              return segment.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(null, null, location.pathname.slice(0, -1) + decoded + location.hash);
+        }
+      })(window.location);
+    </script>
   </head>
   <body>
     <div id="root"></div>
