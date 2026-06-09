@@ -120,11 +120,11 @@ button {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 1;
   pointer-events: none;
   background:
-    linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.08) 48%, rgba(0, 0, 0, 0.78) 65%, #000 100%),
-    linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.72) 8%, transparent 28%);
+    linear-gradient(90deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.78) 38%, rgba(5, 5, 5, 0.18) 72%, rgba(5, 5, 5, 0.7) 100%),
+    linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.68) 8%, transparent 28%);
 }
 
 .hero-section::before {
@@ -142,13 +142,15 @@ button {
   position: relative;
   z-index: 3;
   display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(320px, 0.58fr);
+  grid-template-columns: minmax(0, 0.78fr) minmax(280px, 0.54fr);
   align-items: center;
   gap: clamp(28px, 5vw, 80px);
 }
 
 .hero-copy {
-  max-width: 820px;
+  position: relative;
+  z-index: 3;
+  max-width: 680px;
   padding: clamp(18px, 3vw, 34px) 0;
 }
 
@@ -241,13 +243,13 @@ button {
 
 .hero-portrait {
   position: absolute;
-  right: max(-6vw, -110px);
-  bottom: -1px;
-  z-index: 1;
-  width: min(58vw, 880px);
-  height: min(90vh, 920px);
+  right: clamp(-40px, 3vw, 60px);
+  bottom: 0;
+  z-index: 0;
+  width: clamp(520px, 48vw, 760px);
+  height: min(88vh, 840px);
   pointer-events: none;
-  animation: portraitReveal 1200ms ease both 180ms;
+  animation: portraitReveal 1.2s ease-out both;
 }
 
 .hero-portrait::before {
@@ -266,8 +268,8 @@ button {
   inset: 0;
   z-index: 2;
   background:
-    linear-gradient(to right, #000 0%, rgba(0, 0, 0, 0.94) 10%, rgba(0, 0, 0, 0.32) 32%, transparent 54%),
-    linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.86) 9%, rgba(0, 0, 0, 0.18) 30%, transparent 56%),
+    linear-gradient(to right, #000 0%, rgba(0, 0, 0, 0.9) 8%, rgba(0, 0, 0, 0.26) 28%, transparent 52%),
+    linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.82) 8%, rgba(0, 0, 0, 0.14) 28%, transparent 54%),
     radial-gradient(circle at 68% 62%, transparent 0%, rgba(0, 0, 0, 0.08) 44%, #000 100%);
 }
 
@@ -279,10 +281,14 @@ button {
   display: block;
   object-fit: contain;
   object-position: bottom right;
-  opacity: 0.88;
-  filter: contrast(1.08) saturate(0.88) brightness(0.92);
-  mask-image: linear-gradient(to right, transparent 0%, black 20%, black 82%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 82%, transparent 100%);
+  opacity: 0.9;
+  filter: contrast(1.06) saturate(0.9) brightness(0.94);
+  mask-image:
+    linear-gradient(to right, transparent 0%, black 18%, black 86%, transparent 100%),
+    linear-gradient(to top, transparent 0%, black 12%, black 100%);
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, black 18%, black 86%, transparent 100%),
+    linear-gradient(to top, transparent 0%, black 12%, black 100%);
 }
 
 .portrait-aura {
@@ -751,13 +757,11 @@ button {
 @keyframes portraitReveal {
   from {
     opacity: 0;
-    transform: translateY(24px) scale(0.985);
-    filter: brightness(0.5);
+    transform: translateY(18px) scale(0.98);
   }
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
-    filter: brightness(1);
   }
 }
 
@@ -794,21 +798,20 @@ button {
 
   .hero-section {
     min-height: auto;
-    padding-bottom: 0;
+    padding-bottom: 64px;
   }
 
   .hero-grid {
-    min-height: 820px;
+    min-height: 760px;
     align-items: start;
   }
 
   .hero-portrait {
-    right: 50%;
+    right: max(-8vw, -90px);
     bottom: 0;
-    width: min(78vw, 680px);
-    height: min(66vh, 680px);
-    transform: translateX(50%);
-    opacity: 0.82;
+    width: min(62vw, 640px);
+    height: min(62vh, 620px);
+    opacity: 0.7;
   }
 
   .project-grid,
@@ -843,12 +846,15 @@ button {
 
   .hero-section {
     min-height: auto;
-    padding-top: 46px;
-    padding-bottom: 0;
+    padding-top: 96px;
+    padding-bottom: 52px;
   }
 
   .hero-grid {
-    min-height: 760px;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .hero-copy h1 {
@@ -865,9 +871,21 @@ button {
   }
 
   .hero-portrait {
-    width: min(104vw, 560px);
-    height: 470px;
-    opacity: 0.62;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    order: 2;
+    width: min(92vw, 420px);
+    height: auto;
+    margin: 32px auto 0;
+    opacity: 0.82;
+    transform: none;
+  }
+
+  .hero-portrait img {
+    height: auto;
+    min-height: 0;
+    object-fit: contain;
   }
 
   .project-grid,
@@ -901,14 +919,9 @@ button {
     width: 100%;
   }
 
-  .hero-grid {
-    min-height: 690px;
-  }
-
   .hero-portrait {
-    width: 112vw;
-    height: 420px;
-    opacity: 0.5;
+    width: min(92vw, 380px);
+    opacity: 0.76;
   }
 }
 
