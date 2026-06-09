@@ -64,12 +64,13 @@ export const interests = [
   },
   {
     id: 'games',
-    title: '游戏体验分析',
+    title: '游戏',
+    subtitle: '从竞技反馈、操作手感和成长系统理解游戏为什么吸引人。',
     summary: '玩过多种类型的游戏，关注竞技反馈、操作手感、角色塑造、社交关系和成长系统。',
+    status: 'available',
     motionType: 'hud',
     route: '/interests/games',
-    status: 'ready',
-    subtitle: '从玩家体验出发，观察规则、反馈、成长系统和社交关系。',
+    cta: '查看分析',
     quote: '游戏不只是娱乐，它也是一套关于反馈、目标、选择和奖励的交互系统。',
     sections: [
       {

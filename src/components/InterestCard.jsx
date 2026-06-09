@@ -13,9 +13,9 @@ export default function InterestCard({ interest }) {
         <h3>{interest.title}</h3>
         <p>{interest.summary}</p>
       </div>
-      {interest.status === 'ready' ? (
+      {interest.status === 'ready' || interest.status === 'available' ? (
         <Link className="interest-card-link" to={interest.route}>
-          进入页面
+          {interest.cta || '进入页面'}
         </Link>
       ) : (
         <button type="button" disabled>
