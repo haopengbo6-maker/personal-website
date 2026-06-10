@@ -34,11 +34,12 @@ export const interests = [
   {
     id: 'music',
     title: '音乐',
+    subtitle: '从气息、拨弦和声波里感受节奏与情绪。',
     summary: '学过笛子、吉他和萨克斯，喜欢声音带来的节奏感和情绪表达。',
+    status: 'available',
     motionType: 'wave',
     route: '/interests/music',
-    status: 'planned',
-    statusLabel: '记录整理中',
+    cta: '进入页面',
   },
   {
     id: 'reading',

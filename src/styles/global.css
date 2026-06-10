@@ -3128,6 +3128,609 @@ button {
   }
 }
 
+.music-page {
+  min-height: 100dvh;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(125, 211, 252, 0.09), transparent 30%),
+    radial-gradient(circle at 78% 30%, rgba(229, 231, 235, 0.05), transparent 28%),
+    linear-gradient(180deg, rgba(3, 4, 4, 0.98), rgba(7, 8, 9, 1));
+}
+
+.music-page.music-intro-active {
+  max-height: 100dvh;
+  overflow: hidden;
+}
+
+.music-intro-animation {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 48% 46%, rgba(125, 211, 252, 0.1), transparent 32%),
+    radial-gradient(circle at 68% 58%, rgba(229, 231, 235, 0.045), transparent 26%),
+    #020303;
+  overflow: hidden;
+  animation: musicIntroFadeOut 720ms ease 6.2s both;
+}
+
+.music-skip-button {
+  position: absolute;
+  right: clamp(18px, 4vw, 48px);
+  top: clamp(18px, 4vw, 42px);
+  z-index: 4;
+  min-height: 42px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  padding: 9px 16px;
+  color: var(--color-text);
+  background: rgba(7, 8, 9, 0.72);
+  cursor: pointer;
+}
+
+.music-stage {
+  position: relative;
+  width: min(1160px, 94vw);
+  height: min(660px, 74vh);
+  min-height: 500px;
+  isolation: isolate;
+}
+
+.music-stage::before {
+  content: "";
+  position: absolute;
+  inset: 4% 3%;
+  border: 1px solid rgba(125, 211, 252, 0.12);
+  border-radius: var(--radius-sm);
+  background:
+    linear-gradient(rgba(125, 211, 252, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 211, 252, 0.035) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(ellipse at center, black, transparent 78%);
+  opacity: 0;
+  animation: musicGridIn 900ms ease 4.65s both;
+}
+
+.music-grain {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 18% 26%, rgba(255, 255, 255, 0.055) 0 1px, transparent 1px),
+    radial-gradient(circle at 74% 62%, rgba(125, 211, 252, 0.05) 0 1px, transparent 1px);
+  background-size: 37px 37px, 53px 53px;
+  opacity: 0.24;
+}
+
+.sound-status {
+  position: absolute;
+  left: 6%;
+  top: 7%;
+  display: flex;
+  gap: 18px;
+  color: rgba(229, 231, 235, 0.62);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sound-status span:last-child {
+  color: rgba(125, 211, 252, 0.78);
+  opacity: 0;
+  animation: musicStatusPulse 1.1s ease 1s 3 alternate both;
+}
+
+.music-wave-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.silent-line,
+.breath-wave,
+.sax-wave,
+.flute-line path,
+.guitar-strings path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.silent-line {
+  stroke: rgba(229, 231, 235, 0.26);
+  stroke-width: 1.5;
+  stroke-dasharray: 860;
+  stroke-dashoffset: 860;
+  animation: silentLineDraw 900ms ease both, silentLineDim 600ms ease 1.05s forwards;
+}
+
+.breath-wave {
+  stroke: rgba(125, 211, 252, 0.72);
+  stroke-width: 3;
+  stroke-dasharray: 930;
+  stroke-dashoffset: 930;
+  opacity: 0;
+  filter: drop-shadow(0 0 12px rgba(125, 211, 252, 0.26));
+  animation: musicWaveDraw 1.25s ease 900ms both, musicWaveDrift 1.7s ease-in-out 1.15s both;
+}
+
+.flute-line {
+  opacity: 0;
+  transform-origin: 330px 290px;
+  animation: fluteAppear 1.05s ease 900ms both;
+}
+
+.flute-line path,
+.flute-line circle {
+  stroke: rgba(229, 231, 235, 0.72);
+}
+
+.flute-line path {
+  stroke-width: 3;
+}
+
+.flute-line circle {
+  fill: rgba(3, 4, 4, 0.95);
+  stroke-width: 1.5;
+}
+
+.guitar-strings {
+  opacity: 0;
+  animation: guitarGroupIn 900ms ease 2.05s both;
+}
+
+.guitar-strings path {
+  stroke: rgba(229, 231, 235, 0.34);
+  stroke-width: 1.4;
+  transform-origin: center;
+  animation: stringVibrate 720ms ease-in-out calc(2.2s + var(--string-delay, 0s)) 3;
+}
+
+.guitar-strings path:nth-child(1) { --string-delay: 0s; }
+.guitar-strings path:nth-child(2) { --string-delay: 0.05s; }
+.guitar-strings path:nth-child(3) { --string-delay: 0.1s; }
+.guitar-strings path:nth-child(4) { --string-delay: 0.15s; }
+.guitar-strings path:nth-child(5) { --string-delay: 0.2s; }
+.guitar-strings path:nth-child(6) { --string-delay: 0.25s; }
+
+.sax-wave {
+  stroke: rgba(125, 211, 252, 0.82);
+  stroke-width: 5;
+  stroke-dasharray: 980;
+  stroke-dashoffset: 980;
+  opacity: 0;
+  filter: drop-shadow(0 0 18px rgba(125, 211, 252, 0.26));
+  animation: musicWaveDraw 1.25s ease 3.35s both;
+}
+
+.sax-wave-two {
+  stroke: rgba(215, 177, 112, 0.42);
+  stroke-width: 2.4;
+  animation-delay: 3.55s;
+}
+
+.breath-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.breath-particles span {
+  position: absolute;
+  left: calc(16% + var(--breath-index) * 3.2%);
+  top: calc(48% + (var(--breath-index) % 5) * 2%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(125, 211, 252, 0.7);
+  opacity: 0;
+  box-shadow: 0 0 14px rgba(125, 211, 252, 0.35);
+  animation: breathParticle 1.8s ease calc(1s + var(--breath-index) * 0.035s) both;
+}
+
+.music-spectrum {
+  position: absolute;
+  left: 50%;
+  bottom: 14%;
+  z-index: 2;
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  width: min(620px, 76vw);
+  height: 120px;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: spectrumIn 1.1s ease 4.55s both;
+}
+
+.music-spectrum span {
+  flex: 1;
+  min-width: 3px;
+  height: calc(22px + (var(--bar-index) % 9) * 9px);
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(180deg, rgba(229, 231, 235, 0.82), rgba(125, 211, 252, 0.32));
+  transform-origin: bottom;
+  transform: scaleY(0.18);
+  animation: spectrumBar 900ms ease-in-out calc(4.72s + var(--bar-index) * 0.018s) 2 alternate;
+}
+
+.source-labels {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 7%;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: rgba(229, 231, 235, 0.54);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  opacity: 0;
+  animation: sourceLabelsIn 1s ease 2.1s both;
+}
+
+.music-final-wireframe {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  width: min(520px, 78vw);
+  min-height: 210px;
+  border: 1px solid rgba(125, 211, 252, 0.24);
+  border-radius: var(--radius-sm);
+  padding: 28px;
+  color: var(--color-text);
+  background:
+    linear-gradient(135deg, rgba(125, 211, 252, 0.09), rgba(255, 255, 255, 0.025)),
+    rgba(3, 4, 4, 0.34);
+  box-shadow: inset 0 0 34px rgba(125, 211, 252, 0.045);
+  opacity: 0;
+  transform: translate(-50%, -43%) scale(0.98);
+  animation: musicFinalIn 1.05s ease 5.7s both;
+}
+
+.music-final-wireframe span {
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+}
+
+.music-final-wireframe strong {
+  display: block;
+  margin-top: 14px;
+  font-size: clamp(2.5rem, 7vw, 5.2rem);
+  line-height: 1;
+}
+
+.music-final-wireframe p {
+  margin: 16px 0 0;
+  color: var(--color-muted);
+}
+
+.music-content {
+  position: relative;
+  z-index: 1;
+  min-height: 68vh;
+  display: grid;
+  align-content: center;
+  padding: clamp(92px, 12vw, 160px) 0 clamp(48px, 8vw, 94px);
+  opacity: 0;
+  transform: translateY(18px);
+  animation: musicContentIn 760ms ease 6.05s forwards;
+}
+
+.music-page:not(.music-intro-active) .music-content {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+.music-hero-copy {
+  max-width: 760px;
+  margin-top: 28px;
+}
+
+.music-hero-copy h1 {
+  margin: 0;
+  font-size: clamp(4rem, 13vw, 9.2rem);
+  line-height: 0.9;
+}
+
+.music-hero-copy p {
+  max-width: 620px;
+  margin: 28px 0 0;
+  color: var(--color-muted);
+  font-size: clamp(1.05rem, 1.9vw, 1.45rem);
+}
+
+.music-hero-actions {
+  margin-top: 30px;
+}
+
+.music-intro-copy {
+  max-width: 900px;
+}
+
+.music-intro-copy h2,
+.music-observation h2 {
+  margin: 0 0 18px;
+  font-size: clamp(1.6rem, 3vw, 3rem);
+  line-height: 1.15;
+}
+
+.music-intro-copy p,
+.music-observation p {
+  color: var(--color-muted);
+  font-size: 1.03rem;
+}
+
+.instrument-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.instrument-card {
+  position: relative;
+  min-height: 360px;
+  border: 1px solid rgba(229, 231, 235, 0.11);
+  border-radius: var(--radius-sm);
+  padding: 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 74% 18%, rgba(125, 211, 252, 0.11), transparent 32%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018));
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.instrument-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(125, 211, 252, 0.3);
+}
+
+.instrument-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -10% 0;
+  height: 44%;
+  background: linear-gradient(180deg, transparent, rgba(125, 211, 252, 0.06));
+  pointer-events: none;
+}
+
+.instrument-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+}
+
+.instrument-topline strong {
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  text-transform: none;
+}
+
+.instrument-card h2 {
+  position: relative;
+  z-index: 1;
+  margin: 62px 0 28px;
+  font-size: clamp(1.15rem, 1.8vw, 1.62rem);
+  line-height: 1.35;
+}
+
+.instrument-wave {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 92px;
+  display: grid;
+  gap: 10px;
+}
+
+.instrument-wave span {
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.58), transparent);
+  transform-origin: left;
+}
+
+.instrument-wave span:nth-child(2) {
+  width: 72%;
+  background: linear-gradient(90deg, transparent, rgba(229, 231, 235, 0.34), transparent);
+}
+
+.instrument-wave span:nth-child(3) {
+  width: 54%;
+}
+
+.instrument-card .large-tag-list {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+}
+
+.instrument-strings {
+  background:
+    radial-gradient(circle at 76% 18%, rgba(215, 177, 112, 0.12), transparent 32%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018));
+}
+
+.instrument-brass {
+  background:
+    radial-gradient(circle at 74% 18%, rgba(215, 177, 112, 0.12), transparent 30%),
+    radial-gradient(circle at 24% 72%, rgba(125, 211, 252, 0.08), transparent 32%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018));
+}
+
+.music-observation {
+  max-width: 920px;
+  border-top: 1px solid rgba(229, 231, 235, 0.1);
+  padding-top: clamp(42px, 6vw, 72px);
+}
+
+@keyframes musicIntroFadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes silentLineDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes silentLineDim {
+  to {
+    opacity: 0.36;
+  }
+}
+
+@keyframes musicWaveDraw {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 930;
+  }
+  16% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes musicWaveDrift {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fluteAppear {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes guitarGroupIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stringVibrate {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(-5px) scaleY(1.08);
+  }
+}
+
+@keyframes breathParticle {
+  0% {
+    opacity: 0;
+    transform: translate3d(-18px, 10px, 0) scale(0.4);
+  }
+  28% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(58px, -22px, 0) scale(1);
+  }
+}
+
+@keyframes spectrumIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 18px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes spectrumBar {
+  from {
+    transform: scaleY(0.18);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes sourceLabelsIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes musicStatusPulse {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes musicGridIn {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes musicFinalIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -43%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes musicContentIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 1120px) {
   .hero-grid,
   .about-grid,
@@ -3191,6 +3794,10 @@ button {
   .favorite-game-grid,
   .games-factor-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .instrument-grid {
+    grid-template-columns: 1fr;
   }
 
   .orbit-factor:nth-child(1) { --ox: -270px; --oy: -150px; }
@@ -3291,7 +3898,8 @@ button {
   .sports-card-grid,
   .art-card-grid,
   .favorite-game-grid,
-  .games-factor-grid {
+  .games-factor-grid,
+  .instrument-grid {
     grid-template-columns: 1fr;
   }
 
@@ -3408,6 +4016,58 @@ button {
     padding-top: 76px;
   }
 
+  .music-intro-animation {
+    align-items: start;
+    padding-top: 86px;
+  }
+
+  .music-stage {
+    width: 100vw;
+    height: 540px;
+    min-height: 0;
+  }
+
+  .sound-status {
+    left: 18px;
+    right: 18px;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .music-wave-svg {
+    transform: scale(1.16);
+    transform-origin: center;
+  }
+
+  .source-labels {
+    display: none;
+  }
+
+  .music-spectrum {
+    bottom: 12%;
+    gap: 5px;
+    height: 92px;
+  }
+
+  .music-spectrum span:nth-child(2n) {
+    display: none;
+  }
+
+  .music-final-wireframe {
+    width: min(84vw, 420px);
+    min-height: 188px;
+    padding: 24px;
+  }
+
+  .music-content {
+    min-height: auto;
+    padding-top: 76px;
+  }
+
+  .instrument-card {
+    min-height: 300px;
+  }
+
   .detail-hero {
     padding-top: 76px;
   }
@@ -3463,6 +4123,10 @@ button {
   .ink-specks span:nth-child(n + 25) {
     display: none;
   }
+
+  .breath-particles span:nth-child(n + 13) {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3486,6 +4150,10 @@ button {
     display: none;
   }
 
+  .music-intro-animation {
+    display: none;
+  }
+
   .sports-page.sports-intro-active {
     max-height: none;
     overflow: visible;
@@ -3501,6 +4169,11 @@ button {
     overflow: visible;
   }
 
+  .music-page.music-intro-active {
+    max-height: none;
+    overflow: visible;
+  }
+
   .sports-content {
     opacity: 1;
     transform: none;
@@ -3512,6 +4185,11 @@ button {
   }
 
   .games-content {
+    opacity: 1;
+    transform: none;
+  }
+
+  .music-content {
     opacity: 1;
     transform: none;
   }
